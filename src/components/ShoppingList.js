@@ -3,8 +3,9 @@ import ItemForm from "./ItemForm";
 import Filter from "./Filter";
 import Item from "./Item";
 
-function ShoppingList({ items }) {
+function ShoppingList({ items, onItemFormSubmit, onCategoryChange , search, onSearchChange }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
+
 
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
