@@ -50,7 +50,29 @@ test("the shopping list displays all items when initially rendered", () => {
 });
 
 test("the shopping filters based on the search term to include full matches", () => {
-  render(<ShoppingList items={testData} />);
+  let search = "";
+  const setSearch = (newSearch) => {
+    search = newSearch;
+    rerender(
+      <ShoppingList
+        items={testData}
+        search={search}
+        onSearchChange={setSearch}
+        onCategoryChange={() => {}}
+        onItemFormSubmit={() => {}}
+      />
+    );
+  };
+
+  const { rerender } = render(
+    <ShoppingList
+      items={testData}
+      search={search}
+      onSearchChange={setSearch}
+      onCategoryChange={() => {}}
+      onItemFormSubmit={() => {}}
+    />
+  );
 
   fireEvent.change(screen.queryByPlaceholderText(/Search/), {
     target: { value: "Yogurt" },
@@ -68,7 +90,29 @@ test("the shopping filters based on the search term to include full matches", ()
 });
 
 test("the shopping filters based on the search term to include partial matches", () => {
-  render(<ShoppingList items={testData} />);
+  let search = "";
+  const setSearch = (newSearch) => {
+    search = newSearch;
+    rerender(
+      <ShoppingList
+        items={testData}
+        search={search}
+        onSearchChange={setSearch}
+        onCategoryChange={() => {}}
+        onItemFormSubmit={() => {}}
+      />
+    );
+  };
+
+  const { rerender } = render(
+    <ShoppingList
+      items={testData}
+      search={search}
+      onSearchChange={setSearch}
+      onCategoryChange={() => {}}
+      onItemFormSubmit={() => {}}
+    />
+  );
 
   fireEvent.change(screen.queryByPlaceholderText(/Search/), {
     target: { value: "Cheese" },
